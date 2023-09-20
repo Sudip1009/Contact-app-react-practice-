@@ -61,3 +61,54 @@
 .submit:hover{
   background-color: rgb(65, 65, 66);
 }
+
+/*contactList*/
+
+.contactList{
+  /* min-height: 40vh; */
+  margin-top: 10px;
+}
+.contactHead{
+  margin-left: 10px;
+  margin-top: 5px;
+  padding: 10px;
+  text-decoration: underline solid rgb(76, 72, 72);
+}
+.items{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 30px;
+  padding: 10px;
+  border-bottom: 2px solid rgb(180, 177, 177);
+}
+.list-name{
+  font-size: 20px;
+  font-weight: 800;
+}
+.item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.uIcon{
+  margin-right: 5px;
+  padding: 15px;
+  border-radius: 50%;
+  /* border: solid rgb(96, 95, 95); */
+  background-color: gray;
+  color: white;
+}
+
+.editIcon{
+  margin-right: 30px;
+  font-size: 25px;
+  cursor: pointer;
+  color: rgb(65, 145, 215);
+}
+.tIcon{
+  /* margin-right: 30px; */
+  font-size: 25px;
+  cursor: pointer;
+  color: brown;
+}
