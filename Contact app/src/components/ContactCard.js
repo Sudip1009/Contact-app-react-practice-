@@ -6,7 +6,7 @@ function ContactCard (props){
     return(
         <div className="items">
             <div className="item">
-            <i class="fa-solid fa-user uIcon"></i>
+            <i className="fa-solid fa-user uIcon"></i>
         <div className="content">
             <div className="list-name">{name}</div>
             <div>{phone}</div>
@@ -14,8 +14,8 @@ function ContactCard (props){
         </div>
         </div>
         <div className="icons">
-        <i class="fa-solid fa-pen-to-square editIcon"></i>
-        <i class="fa-solid fa-trash tIcon"></i>
+        <i className="fa-solid fa-pen-to-square editIcon"></i>
+        <i className="fa-solid fa-trash tIcon"></i>
         </div>
     </div>
     )

@@ -1,8 +1,9 @@
-import React,{ useState } from "react";
+import React,{ useState} from "react";
 import './App.css';
 // import ContactCard from "./ContactCard";
 
 function AddContact(props) {
+    // const localStorageKey = "contact_details"
     
     const [contacts , setContacts] = useState({
         name : "",
@@ -17,17 +18,30 @@ function AddContact(props) {
         }))
      }
 
-
+     let {name , phone, email} = contacts;
     const submit = (e)=>{
         e.preventDefault();
     //   console.log(contacts)
     if(contacts.name === "" || contacts.phone ===""||contacts.email ===""){
-        alert("hello")
+        alert("All fields are mandatory")
         return;
     }else
       props.onSubmit(contacts);
-      setContacts()
+      setContacts({
+        name : "",
+        phone: "",
+        email: "",
+      })
+
     }
+    // useEffect(()=>{
+    //    const retriveContacts = JSON.parse(localStorage.getItem(localStorageKey));
+    //    if(retriveContacts) setContacts(retriveContacts);
+    // },[]);
+
+    // useEffect(()=>{
+    //     localStorage.setItem(localStorageKey,JSON.stringify(contacts))
+    // },[contacts]);
 
     return (
         <div className="contact-details">
@@ -37,20 +51,21 @@ function AddContact(props) {
                     <label>Name<span>*</span></label>
                     <input 
                     type="text" 
-                    name="name"       
+                    name="name" 
+                    value={name}      
                     onChange = {handleOnChange}
                     placeholder="Enter your name here" 
                     required></input>
                 </div>
                 <div className="field">
                     <label>Phone Number<span>*</span></label>
-                    <input type="tel" name="phone" placeholder="Enter your phone number here"  pattern="[0-9]" 
+                    <input type="tel" name="phone" placeholder="Enter your phone number here" value={phone}  pattern="[0-9]" 
                     onChange = {handleOnChange}
                     required></input>
                 </div>
                 <div className="field">
                     <label>Email Id<span>*</span></label>
-                    <input type="email" name="email" placeholder="Enter your email id here" 
+                    <input type="email" name="email" placeholder="Enter your email id here" value={email}
                     onChange = {handleOnChange}
                     required></input>
                 </div>
