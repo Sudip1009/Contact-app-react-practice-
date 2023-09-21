@@ -2,7 +2,7 @@ import React,{ useState } from "react";
 import './App.css';
 // import ContactCard from "./ContactCard";
 
-function AddContact() {
+function AddContact(props) {
     
     const [contacts , setContacts] = useState({
         name : "",
@@ -19,7 +19,14 @@ function AddContact() {
 
 
     const submit = (e)=>{
-      console.log(contacts)
+        e.preventDefault();
+    //   console.log(contacts)
+    if(contacts.name === "" || contacts.phone ===""||contacts.email ===""){
+        alert("hello")
+        return;
+    }else
+      props.onSubmit(contacts);
+      setContacts()
     }
 
     return (

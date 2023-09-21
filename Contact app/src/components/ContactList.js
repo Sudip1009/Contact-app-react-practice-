@@ -1,18 +1,18 @@
 import React from "react";
 import './App.css';
-// import ContactCard from './ContactCard';
+import ContactCard from './ContactCard';
 
 function ContactList(props) {
 
-    // const renderContactList = props.contacts.map((contact)=>{
-    //     return (
-    //         <ContactCard contact={contact}></ContactCard>
-    //     )
-    // });
+    const renderContactList = props.allData.map((contact)=>{
+        return (
+            <ContactCard contact={contact}></ContactCard>
+        )
+    });
     return (
         <div className="contactList">
             <h2  className="contactHead">Contact List</h2>
-            {/* {renderContactList} */}
+            {renderContactList}
         </div>
        );
 }
