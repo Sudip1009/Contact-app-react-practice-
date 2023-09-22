@@ -3,7 +3,6 @@ import './App.css';
 // import ContactCard from "./ContactCard";
 
 function AddContact(props) {
-    // const localStorageKey = "contact_details"
     
     const [contacts , setContacts] = useState({
         name : "",
@@ -34,14 +33,7 @@ function AddContact(props) {
       })
 
     }
-    // useEffect(()=>{
-    //    const retriveContacts = JSON.parse(localStorage.getItem(localStorageKey));
-    //    if(retriveContacts) setContacts(retriveContacts);
-    // },[]);
 
-    // useEffect(()=>{
-    //     localStorage.setItem(localStorageKey,JSON.stringify(contacts))
-    // },[contacts]);
 
     return (
         <div className="contact-details">

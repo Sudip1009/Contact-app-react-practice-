@@ -2,7 +2,7 @@ import React from "react";
 import './App.css';
 
 function ContactCard (props){
-    const {name , phone , email} = props.contact
+    const {id ,name , phone , email} = props.contact
     return(
         <div className="items">
             <div className="item">
@@ -15,7 +15,7 @@ function ContactCard (props){
         </div>
         <div className="icons">
         <i className="fa-solid fa-pen-to-square editIcon"></i>
-        <i className="fa-solid fa-trash tIcon"></i>
+        <i className="fa-solid fa-trash tIcon" onClick ={()=> props.deleteHandler(id)}></i>
         </div>
     </div>
     )
