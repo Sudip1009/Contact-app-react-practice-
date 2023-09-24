@@ -1,8 +1,16 @@
-import React from "react";
+import React,{ useEffect } from "react";
 import './App.css';
 
 
-function EditContact() {
+function EditContact(props) {
+
+        useEffect(() => {
+            document.body.style.overflowY = "hidden";
+            return ()=>{
+                document.body.style.overflowY = "scroll";
+            }
+        },[]);
+
     // const [toggleSubmit , setToggleSubmit] = useState(true);
     
     // const [contacts , setContacts] = useState({
@@ -61,6 +69,7 @@ function EditContact() {
                 </div>
             </form>
             <button type="submit" name="submit"  className="edit-submit">Edit contact</button>
+            <button type="submit" name="submit"  className="edit-submit">Close</button>
             
             {/* <br></br><span>*</span>This field is required. */}
         </div>

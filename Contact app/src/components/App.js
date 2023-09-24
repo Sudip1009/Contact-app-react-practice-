@@ -39,16 +39,18 @@ function App() {
     setAllData(newContactList);
   }
 
+
  useEffect(()=>{
      localStorage.setItem("localStorageKey",JSON.stringify(allData))
  },[allData]);
 
   return (
   <div>
+    <EditContact/>  
     <Header/>
-    <AddContact onSubmit ={getData} editContactId={editContactHandler}/>
-     <ContactList allData={allData}  getContactId ={removeContactHandler}/>
-     <EditContact/>
+    <AddContact onSubmit ={getData}/>
+     <ContactList allData={allData}  editContactId={editContactHandler}  getContactId ={removeContactHandler}/>
+       
   </div>
   );
 

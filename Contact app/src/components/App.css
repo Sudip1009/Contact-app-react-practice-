@@ -114,6 +114,8 @@
 }
 
 .edit-contact-details{
+  position: fixed;
+  background-color: white;
   margin: 0px 20px;
   min-height: 30vh;
   width: 400px;
@@ -141,6 +143,7 @@
   background-color: rgb(65, 65, 66);
 }
 .box{
+    position: fixed;
     height: 100%;
     width: 100%;
     display: flex;
