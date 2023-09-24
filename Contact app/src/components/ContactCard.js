@@ -14,7 +14,7 @@ function ContactCard (props){
         </div>
         </div>
         <div className="icons">
-        <i className="fa-solid fa-pen-to-square editIcon"></i>
+        <i className="fa-solid fa-pen-to-square editIcon"  onClick ={()=> props.editHandler(id)}></i>
         <i className="fa-solid fa-trash tIcon" onClick ={()=> props.deleteHandler(id)}></i>
         </div>
     </div>

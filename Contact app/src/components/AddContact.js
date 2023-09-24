@@ -3,6 +3,7 @@ import './App.css';
 // import ContactCard from "./ContactCard";
 
 function AddContact(props) {
+    const [toggleSubmit , setToggleSubmit] = useState(true);
     
     const [contacts , setContacts] = useState({
         name : "",
@@ -62,7 +63,10 @@ function AddContact(props) {
                     required></input>
                 </div>
             </form>
-            <button type="submit" name="submit" onClick={submit} className="submit">Add</button>
+            {
+            toggleSubmit ? <button type="submit" name="submit" onClick={submit} className="submit">Add</button>:
+            <button type="submit" name="submit" onClick={submit} className="submit">Update</button>
+            }
             {/* <br></br><span>*</span>This field is required. */}
         </div>
        );

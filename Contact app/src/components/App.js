@@ -3,6 +3,7 @@ import './App.css';
 import Header from "./Header";
 import AddContact from "./AddContact";
 import ContactList from "./ContactList";
+import EditContact from "./EditContact";
 
 const retriveContacts = ()=>{
   const list = localStorage.getItem("localStorageKey")
@@ -23,6 +24,13 @@ function App() {
     setAllData([...allData ,{id : crypto.randomUUID(), ...data}]);
   }
 
+  const editContactHandler =(id)=>{
+    const editedItem = allData.find((contact)=>{
+      return contact.id === id;
+    })
+    console.log(editedItem)
+  }
+
   const removeContactHandler = (id)=>{
     const newContactList =  allData.filter((contact)=>{
       // console.log(contact)
@@ -38,8 +46,9 @@ function App() {
   return (
   <div>
     <Header/>
-    <AddContact onSubmit ={getData}/>
-     <ContactList allData={allData} getContactId ={removeContactHandler}/>
+    <AddContact onSubmit ={getData} editContactId={editContactHandler}/>
+     <ContactList allData={allData}  getContactId ={removeContactHandler}/>
+     <EditContact/>
   </div>
   );
 

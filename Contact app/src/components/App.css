@@ -53,7 +53,7 @@
   margin-bottom: 10px;
   background-color: rgb(5, 116, 252);
   color: white;
-  width: 20vw;
+  width: 150px;
   border: none;
   border-radius: 50px;
   font-size: 15px;
@@ -111,4 +111,38 @@
   font-size: 25px;
   cursor: pointer;
   color: brown;
+}
+
+.edit-contact-details{
+  margin: 0px 20px;
+  min-height: 30vh;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+}
+.edit-contact-details h2{
+  padding: 10px;
+  text-decoration: underline solid rgb(76, 72, 72); 
+}
+
+.edit-submit{
+  margin-bottom: 10px;
+  padding: 5px;
+  background-color: rgb(5, 116, 252);
+  color: white;
+  width: 100px;
+  border: none;
+  border-radius: 50px;
+  font-size: 15px;
+}
+.edit-submit:hover{
+  background-color: rgb(65, 65, 66);
+}
+.box{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
