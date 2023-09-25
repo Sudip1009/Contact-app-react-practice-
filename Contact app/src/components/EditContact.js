@@ -11,8 +11,13 @@ function EditContact(props) {
             }
         },[]);
 
-    // const [toggleSubmit , setToggleSubmit] = useState(true);
-    
+        // const[modal , setModal] = useState()
+
+
+       const editOnChange = (e)=>{
+            console.log(e.target.value)
+        }
+
     // const [contacts , setContacts] = useState({
     //     name : "",
     //     phone: "",
@@ -42,9 +47,9 @@ function EditContact(props) {
     //   })
 
     // }
-
-
-    return (
+    // console.log(props.editData)
+    const {name , phone , email} = props.editData
+    return (props.trigger) ? (
         <div className="box">
         <div className="edit-contact-details">
             <h2>Edit Contact</h2>
@@ -55,26 +60,28 @@ function EditContact(props) {
                     type="text" 
                     name="name"      
                     placeholder="Enter your name here" 
+                    value={name}
+                    onChange={editOnChange}
                     required></input>
                 </div>
                 <div className="field">
                     <label>Phone Number<span>*</span></label>
-                    <input type="tel" name="phone" placeholder="Enter your phone number here" pattern="[0-9]" 
+                    <input type="tel" name="phone" placeholder="Enter your phone number here" pattern="[0-9]" value={phone} onChange={editOnChange}
                     required></input>
                 </div>
                 <div className="field">
                     <label>Email Id<span>*</span></label>
-                    <input type="email" name="email" placeholder="Enter your email id here"
+                    <input type="email" name="email" placeholder="Enter your email id here" value={email} onChange={editOnChange}
                     required></input>
                 </div>
             </form>
-            <button type="submit" name="submit"  className="edit-submit">Edit contact</button>
+            <button type="submit" name="submit"  className="edit-submit">Submit</button>
             <button type="submit" name="submit"  className="edit-submit">Close</button>
             
             {/* <br></br><span>*</span>This field is required. */}
         </div>
         </div>
-       );
+       ) : "";
 }
 
 export default EditContact;

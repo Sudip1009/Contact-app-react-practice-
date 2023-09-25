@@ -18,18 +18,23 @@ const retriveContacts = ()=>{
 function App() {
 
  const [allData , setAllData] = useState(retriveContacts());
+ const [editModal , setEditModal] = useState(false);
 
   function getData(data){
     // console.log("hello"+data)    
     setAllData([...allData ,{id : crypto.randomUUID(), ...data}]);
   }
 
-  const editContactHandler =(id)=>{
-    const editedItem = allData.find((contact)=>{
-      return contact.id === id;
-    })
-    console.log(editedItem)
+  const editContactHandler =(id)=>{  
+    // console.log(editedItem)
+    // setEditModal(true);
+      const editedItem = allData.find((contact)=>{
+        return contact.id === id;
+      })
+      setEditModal(editedItem)
+    
   }
+ 
 
   const removeContactHandler = (id)=>{
     const newContactList =  allData.filter((contact)=>{
@@ -46,7 +51,7 @@ function App() {
 
   return (
   <div>
-    <EditContact/>  
+    <EditContact editData={editModal} trigger={editModal}/>  
     <Header/>
     <AddContact onSubmit ={getData}/>
      <ContactList allData={allData}  editContactId={editContactHandler}  getContactId ={removeContactHandler}/>
