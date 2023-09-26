@@ -1,22 +1,21 @@
-import React,{ useEffect } from "react";
+import React from "react"; //,{ useEffect }
 import './App.css';
+// import ContactCard from "./ContactCard";
 
 
 function EditContact(props) {
 
-        useEffect(() => {
-            document.body.style.overflowY = "hidden";
-            return ()=>{
-                document.body.style.overflowY = "scroll";
-            }
-        },[]);
-
-        // const[modal , setModal] = useState()
+        // useEffect(() => {
+        //     document.body.style.overflowY = "hidden";
+        //     return ()=>{
+        //         document.body.style.overflowY = "scroll";
+        //     }
+        // },[]);
 
 
-       const editOnChange = (e)=>{
-            console.log(e.target.value)
-        }
+
+
+
 
     // const [contacts , setContacts] = useState({
     //     name : "",
@@ -49,6 +48,11 @@ function EditContact(props) {
     // }
     // console.log(props.editData)
     const {name , phone , email} = props.editData
+
+    // const {updateContact} = useContext(ContactCard);
+
+    // const updatedContact = {id, name , phone, email}
+
     return (props.trigger) ? (
         <div className="box">
         <div className="edit-contact-details">
@@ -61,21 +65,21 @@ function EditContact(props) {
                     name="name"      
                     placeholder="Enter your name here" 
                     value={name}
-                    onChange={editOnChange}
+                    onChange={props.editOnChange}
                     required></input>
                 </div>
                 <div className="field">
                     <label>Phone Number<span>*</span></label>
-                    <input type="tel" name="phone" placeholder="Enter your phone number here" pattern="[0-9]" value={phone} onChange={editOnChange}
+                    <input type="tel" name="phone" placeholder="Enter your phone number here" pattern="[0-9]" value={phone} onChange={props.editOnChange}
                     required></input>
                 </div>
                 <div className="field">
                     <label>Email Id<span>*</span></label>
-                    <input type="email" name="email" placeholder="Enter your email id here" value={email} onChange={editOnChange}
+                    <input type="email" name="email" placeholder="Enter your email id here" value={email} onChange={props.editOnChange}
                     required></input>
                 </div>
             </form>
-            <button type="submit" name="submit"  className="edit-submit">Submit</button>
+            <button type="submit" name="submit"  className="edit-submit" onClick={props.editModalSubmit}>Submit</button>
             <button type="submit" name="submit"  className="edit-submit">Close</button>
             
             {/* <br></br><span>*</span>This field is required. */}

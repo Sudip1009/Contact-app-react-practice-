@@ -19,22 +19,44 @@ function App() {
 
  const [allData , setAllData] = useState(retriveContacts());
  const [editModal , setEditModal] = useState(false);
+//  const [modalContactId , setModalContactId] = useState(crypto.randomUUID());
 
-  function getData(data){
-    // console.log("hello"+data)    
-    setAllData([...allData ,{id : crypto.randomUUID(), ...data}]);
+  function getData(data){   
+    setAllData([...allData ,{id: crypto.randomUUID(), ...data}]);
   }
+
 
   const editContactHandler =(id)=>{  
     // console.log(editedItem)
     // setEditModal(true);
       const editedItem = allData.find((contact)=>{
-        return contact.id === id;
+        return contact.id === id;       
       })
-      setEditModal(editedItem)
+      const modalValues = {
+        id: editedItem.id,
+        name: editedItem.name,
+        phone: editedItem.phone,
+        email: editedItem.email,
+      }
+      setEditModal(modalValues)
     
   }
- 
+
+  const editOnChange = (e)=>{
+    const fieldName = e.target.getAttribute("name")
+    const fieldValue = e.target.value;
+
+    const newFormData = {...editModal}
+    newFormData[fieldName] = fieldValue;
+
+    setEditModal(newFormData)
+    }
+
+    const editModalSubmit = ()=>{
+      console.log(editModal)
+    }
+
+
 
   const removeContactHandler = (id)=>{
     const newContactList =  allData.filter((contact)=>{
@@ -51,7 +73,7 @@ function App() {
 
   return (
   <div>
-    <EditContact editData={editModal} trigger={editModal}/>  
+    <EditContact editOnChange={editOnChange} editModalSubmit={editModalSubmit} editData={editModal} trigger={editModal}/>  
     <Header/>
     <AddContact onSubmit ={getData}/>
      <ContactList allData={allData}  editContactId={editContactHandler}  getContactId ={removeContactHandler}/>
