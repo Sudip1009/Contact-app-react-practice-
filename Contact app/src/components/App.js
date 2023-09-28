@@ -51,9 +51,13 @@ function App() {
     setEditModal(newFormData)
     }
 
-    const editModalSubmit = ()=>{
-      // console.log(editModal)
-      const {id,name,email} = editModal
+    const editModalSubmit = (e)=>{
+      e.preventDefault()
+      const {id,name,email} = editModal;
+      if(editModal.name === "" || editModal.phone ===""||editModal.email ===""){
+        alert("All fields are mandatory")
+        return;
+      }else
       setAllData(allData.map((contact)=>{
         return contact.id === id ? {...editModal} : contact
       }))
@@ -71,7 +75,7 @@ function App() {
       // console.log(contact)
       return contact.id !== id;
     })
-    setAllData(newContactList);
+      setAllData(newContactList); 
   }
 
 
@@ -81,11 +85,10 @@ function App() {
 
   return (
   <div>
-    <EditContact editOnChange={editOnChange} editModalSubmit={editModalSubmit} closeButton={closeButtonHandler} editData={editModal} trigger={editModal}/>  
     <Header/>
+    <EditContact editOnChange={editOnChange} editModalSubmit={editModalSubmit} closeButton={closeButtonHandler} editData={editModal} trigger={editModal}/>  
     <AddContact onSubmit ={getData}/>
      <ContactList allData={allData}  editContactId={editContactHandler}  getContactId ={removeContactHandler}/>
-       
   </div>
   );
 

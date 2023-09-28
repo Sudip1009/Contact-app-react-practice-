@@ -1,15 +1,9 @@
-import React from "react"; //,{ useEffect }
+import React from "react";
 import './App.css';
 
 
 function EditContact(props) {
 
-        // useEffect(() => {
-        //     document.body.style.overflowY = "hidden";
-        //     return ()=>{
-        //         document.body.style.overflowY = "scroll";
-        //     }
-        // },[]);
 
     const {name , phone , email} = props.editData
 
@@ -39,10 +33,8 @@ function EditContact(props) {
                     required></input>
                 </div>
             </form>
-            <button type="submit" name="submit"  className="edit-submit" onClick={props.editModalSubmit}>Submit</button>
-            <button type="submit" name="submit"  className="edit-submit" onClick={props.closeButton}>Close</button>
-            
-            {/* <br></br><span>*</span>This field is required. */}
+            <button type="submit" name="submit" title="submit" className="edit-submit" onClick={props.editModalSubmit}>Submit</button>
+            <button type="submit" name="submit" title="close"  className="edit-submit" onClick={props.closeButton}>Close</button>
         </div>
         </div>
        ) : "";

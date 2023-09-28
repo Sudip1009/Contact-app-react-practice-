@@ -61,7 +61,7 @@ function AddContact(props) {
                     required></input>
                 </div>
             </form>
-             <button type="submit" name="submit" onClick={submit} className="submit">Add</button>
+             <button type="submit" name="submit" title="Add Contact" onClick={submit} className="submit">Add</button>
             
             {/* <br></br><span>*</span>This field is required. */}
         </div>
