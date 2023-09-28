@@ -1,6 +1,5 @@
 import React,{ useState} from "react";
 import './App.css';
-// import ContactCard from "./ContactCard";
 
 function AddContact(props) {
     

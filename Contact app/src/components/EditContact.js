@@ -1,6 +1,5 @@
 import React from "react"; //,{ useEffect }
 import './App.css';
-// import ContactCard from "./ContactCard";
 
 
 function EditContact(props) {
@@ -12,46 +11,7 @@ function EditContact(props) {
         //     }
         // },[]);
 
-
-
-
-
-
-    // const [contacts , setContacts] = useState({
-    //     name : "",
-    //     phone: "",
-    //     email: "",
-    //   });
-    
-
-    //  const handleOnChange = (event)=>{
-    //     setContacts(()=> ({
-    //         ...contacts,[event.target.name]: event.target.value,
-    //     }))
-    //  }
-
-    //  let {name , phone, email} = contacts;
-    // const submit = (e)=>{
-    //     e.preventDefault();
-    // //   console.log(contacts)
-    // if(contacts.name === "" || contacts.phone ===""||contacts.email ===""){
-    //     alert("All fields are mandatory")
-    //     return;
-    // }else
-    //   props.onSubmit(contacts);
-    //   setContacts({
-    //     name : "",
-    //     phone: "",
-    //     email: "",
-    //   })
-
-    // }
-    // console.log(props.editData)
     const {name , phone , email} = props.editData
-
-    // const {updateContact} = useContext(ContactCard);
-
-    // const updatedContact = {id, name , phone, email}
 
     return (props.trigger) ? (
         <div className="box">
@@ -80,7 +40,7 @@ function EditContact(props) {
                 </div>
             </form>
             <button type="submit" name="submit"  className="edit-submit" onClick={props.editModalSubmit}>Submit</button>
-            <button type="submit" name="submit"  className="edit-submit">Close</button>
+            <button type="submit" name="submit"  className="edit-submit" onClick={props.closeButton}>Close</button>
             
             {/* <br></br><span>*</span>This field is required. */}
         </div>

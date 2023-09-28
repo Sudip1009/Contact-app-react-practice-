@@ -19,7 +19,6 @@ function App() {
 
  const [allData , setAllData] = useState(retriveContacts());
  const [editModal , setEditModal] = useState(false);
-//  const [modalContactId , setModalContactId] = useState(crypto.randomUUID());
 
   function getData(data){   
     setAllData([...allData ,{id: crypto.randomUUID(), ...data}]);
@@ -53,7 +52,16 @@ function App() {
     }
 
     const editModalSubmit = ()=>{
-      console.log(editModal)
+      // console.log(editModal)
+      const {id,name,email} = editModal
+      setAllData(allData.map((contact)=>{
+        return contact.id === id ? {...editModal} : contact
+      }))
+      setEditModal(false)
+    }
+
+    const closeButtonHandler = ()=> {
+      setEditModal(false)
     }
 
 
@@ -73,7 +81,7 @@ function App() {
 
   return (
   <div>
-    <EditContact editOnChange={editOnChange} editModalSubmit={editModalSubmit} editData={editModal} trigger={editModal}/>  
+    <EditContact editOnChange={editOnChange} editModalSubmit={editModalSubmit} closeButton={closeButtonHandler} editData={editModal} trigger={editModal}/>  
     <Header/>
     <AddContact onSubmit ={getData}/>
      <ContactList allData={allData}  editContactId={editContactHandler}  getContactId ={removeContactHandler}/>
